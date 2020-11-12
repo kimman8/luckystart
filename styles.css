@@ -8,8 +8,8 @@ html {
   /* A system font stack so things load nice and quick! */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 900;
-  font-size: 10px;
+  font-weight: 500;
+  font-size: 7px;
   color: var(--black);
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
 }
@@ -21,7 +21,7 @@ html {
 
 body {
   background-image: url("./images/topography.svg"),
-    linear-gradient(110deg, #300916, #441324);
+    linear-gradient(110deg, #c51414, #d72d68);
   background-size: 340px, auto;
   min-height: calc(100vh - 100px);
   margin: 50px;
@@ -29,9 +29,46 @@ body {
   background-attachment: fixed;
   letter-spacing: -1px;
 }
+.item .price {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: flex-end;
+  align-items: center;
+  border: 5px solid tomato;
+  border-radius: 3px;
+  font-size: 25px;
+  background-color: var(--yellow); /* best colour */
+}
+.item .main {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 25px;
+  background-color: var(--yellow); /* best colour */
+}
+.item {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 25px;
+  background-color: var(--yellow); /* best colour */
+}
+
+.item p {
+  margin: 0 0 5px 0;
+}
 
 h1 {
+  display: flex;
   color: tomato;
+  margin: 0 0 5px 0;
+  align-content: flex-start;
 }
 
 h2 {
@@ -40,4 +77,78 @@ h2 {
 
 .container {
   display: grid;
+  /* display: flex; */
+  flex-wrap: wrap;
+  /* align-items: center; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 80px;
+  grid-template-rows: repeat(3, 2fr);
+  border: 10px solid tomato;
+}
+.entree,
+.beef,
+.chicken,
+.pork,
+.drinks,
+.vegetarian,
+.soup,
+.rice,
+.noodles {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header "
+    "main price";
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  border: 10px solid blue;
+}
+.main {
+  grid-area: main;
+  border: solid 10px tomato;
+  display: flex;
+  flex-direction: column;
+}
+.price {
+  grid-area: price;
+  border: solid 10px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.example {
+  display: grid;
+  border: 10px solid purple;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "main price"
+    "main price"
+    "main price";
+}
+
+.beef {
+  display: grid;
+  border: 10px solid purple;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "main price"
+    "main price"
+    "main price";
 }
