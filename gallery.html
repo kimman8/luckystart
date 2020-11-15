@@ -1,0 +1,102 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Gallery</title>
+  </head>
+  <body>
+    <h1>This is da gallery!</h1>
+    <div class="meals">
+      <div class="meal">
+        <img src="honey_chicken.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Honey Chicken</h4>
+          <p class="meal__desc">
+            Battered chicken pieces wok tossed with a sweet honey glaze.
+          </p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="chicken_veg.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Chicken and Vegies</h4>
+          <p>
+            diced chicken thighs stir fried with broccoli, cauliflower, carrots
+            and celery in a fragrant oyster sauce.
+          </p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="dimmys.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Home Made Fried Dim Sims</h4>
+          <p>Our very own hand made pork and cabbage Chinese style dumpling.</p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="steak_black_bean.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Steak and Black Bean</h4>
+          <p>
+            slices of juicy beef, stir fried with broccoli, cauliflower, carrots
+            and celery in a black bean sauce.
+          </p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="fried_rice.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Special Fried Rice</h4>
+          <p>BBQ pork, chicken, egg, carrots and spring onions.</p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="noodles.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Singapore Style Noodles</h4>
+          <p>
+            Stir fried vermicelli noodles, BBQ pork, egg, carrot, onion, spring
+            onion and seasoned with fragrant curry powder.
+          </p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="curry_puffs.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Curry Puffs</h4>
+          <p>beef, corn, potato, carrot, curry</p>
+        </div>
+      </div>
+      <div class="meal">
+        <img src="chips.png" class="meal__pic" />
+        <div class="meal__details">
+          <h4>Chips</h4>
+          <p>Straight cut chips!</p>
+        </div>
+      </div>
+    </div>
+    <style>
+      .meals {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+
+      .meal {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        grid-gap: 20px;
+        align-items: center;
+        font-weight: 100;
+      }
+
+      .meal__pic {
+        width: 100%;
+      }
+    </style>
+  </body>
+</html>
