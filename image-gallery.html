@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
     <title>Lucky Start Image Gallery!</title>
   </head>
 
@@ -15,6 +19,7 @@
           <li><a href="index.html">Menu</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="image-gallery.html">Image Gallery</a></li>
+          <li><a href="flex-panel.html">Panel</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li class="social">
@@ -169,10 +174,10 @@
     </style>
 
     <script>
-      const gallery = document.querySelector(".gallery");
-      const overlay = document.querySelector(".overlay");
-      const overlayImage = overlay.querySelector("img");
-      const overlayClose = overlay.querySelector(".close");
+      const gallery = document.querySelector('.gallery');
+      const overlay = document.querySelector('.overlay');
+      const overlayImage = overlay.querySelector('img');
+      const overlayClose = overlay.querySelector('.close');
 
       function generateHTML([h, v]) {
         return `
@@ -190,13 +195,13 @@
       }
 
       function handleClick(e) {
-        const src = e.currentTarget.querySelector("img").src;
+        const src = e.currentTarget.querySelector('img').src;
         overlayImage.src = src;
-        overlay.classList.add("open");
+        overlay.classList.add('open');
       }
 
       function close() {
-        overlay.classList.remove("open");
+        overlay.classList.remove('open');
       }
 
       const digits = Array.from({ length: 50 }, () => [
@@ -223,14 +228,35 @@
         [1, 1],
       ]);
 
-      const html = digits.map(generateHTML).join("");
+      const html = digits.map(generateHTML).join('');
       gallery.innerHTML = html;
 
-      const items = document.querySelectorAll(".item");
+      const items = document.querySelectorAll('.item');
 
-      items.forEach((item) => item.addEventListener("click", handleClick));
+      items.forEach(item => item.addEventListener('click', handleClick));
 
-      overlayClose.addEventListener("click", close);
+      overlayClose.addEventListener('click', close);
+      //highlighting nav bar menu with the white pill following cursor
+      const triggers = document.querySelectorAll('a');
+      const highlight = document.createElement('span');
+      highlight.classList.add('highlight');
+      document.body.appendChild(highlight);
+
+      function highlightLink() {
+        const linkCoords = this.getBoundingClientRect();
+        console.log(linkCoords);
+        const coords = {
+          width: linkCoords.width,
+          height: linkCoords.height,
+          top: linkCoords.top + window.scrollY,
+          left: linkCoords.left + window.scrollX,
+        };
+        highlight.style.width = `${coords.width}px`;
+        highlight.style.height = `${coords.height}px`;
+        highlight.style.transform = `translate(${coords.left}px,${coords.top}px)`;
+      }
+
+      triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
     </script>
   </body>
 </html>
